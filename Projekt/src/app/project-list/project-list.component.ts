@@ -4,6 +4,9 @@ import { PostService } from '../services/post.service';
 interface Post {
   title: string;
   content: string;
+  status: 'Do zrobienia' | 'W trakcie' | 'Zrobione';
+  funkcjonalność: string;
+  priority: 'Wysoki' | 'Średni' | 'Niski';
 }
 
 @Component({
@@ -14,7 +17,7 @@ interface Post {
 
 export class ProjectlistComponent implements OnInit {
   posts: Post[] = [];
-  newPost: Post = { title: '', content: '' };
+  newPost: Post = { title: '', content: '', status: 'Do zrobienia', funkcjonalność: '', priority: 'Niski' };
   editedPost: Post | null = null;
   editedPostIndex: number = -1;
 
@@ -27,7 +30,7 @@ export class ProjectlistComponent implements OnInit {
 
   addPost(): void {
     this.postService.addPost(this.newPost);
-    this.newPost = { title: '', content: '' };
+    this.newPost = { title: '', content: '', status: 'Do zrobienia', funkcjonalność: '', priority: 'Niski' };
     this.posts = this.postService.getPosts();
   }
 

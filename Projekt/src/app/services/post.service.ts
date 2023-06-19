@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 interface Post {
   title: string;
   content: string;
+  status: 'Do zrobienia' | 'W trakcie' | 'Zrobione';
+  funkcjonalność: string;
+  priority: 'Wysoki' | 'Średni' | 'Niski';
 }
 
 @Injectable({
@@ -15,7 +18,9 @@ export class PostService {
 
   getPosts(): Post[] {
     const savedPosts = localStorage.getItem(this.localStorageKey);
-    return savedPosts ? JSON.parse(savedPosts) : [];
+
+    return savedPosts ? JSON.parse(savedPosts).map((post: Post) => ({ ...post, status: post.status || 'Do zrobienia', funkcjonalność: post.funkcjonalność || '', priority: post.priority || 'Niski' })) : [];
+
   }
 
   savePosts(posts: Post[]): void {
