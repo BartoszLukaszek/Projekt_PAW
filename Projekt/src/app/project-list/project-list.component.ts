@@ -5,7 +5,7 @@ interface Post {
   title: string;
   content: string;
   status: 'Do zrobienia' | 'W trakcie' | 'Zrobione';
-  funkcjonalność: string;
+  funkcjonalnosc: string;
   priority: 'Wysoki' | 'Średni' | 'Niski';
 }
 
@@ -17,7 +17,7 @@ interface Post {
 
 export class ProjectlistComponent implements OnInit {
   posts: Post[] = [];
-  newPost: Post = { title: '', content: '', status: 'Do zrobienia', funkcjonalność: '', priority: 'Niski' };
+  newPost: Post = { title: '', content: '', status: 'Do zrobienia', funkcjonalnosc: '', priority: 'Niski' };
   editedPost: Post | null = null;
   editedPostIndex: number = -1;
 
@@ -27,10 +27,9 @@ export class ProjectlistComponent implements OnInit {
     this.posts = this.postService.getPosts();
   }
 
-
   addPost(): void {
     this.postService.addPost(this.newPost);
-    this.newPost = { title: '', content: '', status: 'Do zrobienia', funkcjonalność: '', priority: 'Niski' };
+    this.newPost = { title: '', content: '', status: 'Do zrobienia', funkcjonalnosc: '', priority: 'Niski' };
     this.posts = this.postService.getPosts();
   }
 

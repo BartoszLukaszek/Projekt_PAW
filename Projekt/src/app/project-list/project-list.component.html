@@ -1,3 +1,4 @@
+
 <div class="blog-container">
   <h2 class="main-title">Dodaj nowy projekt</h2>
   <div class="input-group">
@@ -7,6 +8,14 @@
   <div class="input-group">
       <label>Opis projektu:</label>
       <textarea [(ngModel)]="newPost.content" placeholder="Opis projektu"></textarea>
+  </div>
+  <div class="input-group">
+      <label>Status:</label>
+      <select [(ngModel)]="newPost.status">
+          <option value="Do zrobienia">Do zrobienia</option>
+          <option value="W trakcie">W trakcie</option>
+          <option value="Zrobione">Zrobione</option>
+      </select>
   </div>
   <div class="input-group">
       <label>Priorytet:</label>
@@ -29,6 +38,14 @@
           <textarea [(ngModel)]="editedPost.content"></textarea>
       </div>
       <div class="input-group">
+          <label>Status:</label>
+          <select [(ngModel)]="editedPost.status">
+              <option value="Do zrobienia">Do zrobienia</option>
+              <option value="W trakcie">W trakcie</option>
+              <option value="Zrobione">Zrobione</option>
+          </select>
+      </div>
+      <div class="input-group">
           <label>Priorytet:</label>
           <select [(ngModel)]="editedPost.priority">
               <option value="Wysoki">Wysoki</option>
@@ -45,7 +62,9 @@
       <h3 class="gen-title">{{ post.title }}</h3>
       <p class="gen-content">{{ post.content }}</p>
       <p class="gen-priority">{{ post.priority }}</p>
-      <button (click)="deletePost(i)">Delete</button>
-      <button (click)="enterEditMode(post, i)">Edit</button>
+      <p class="gen-status">{{ post.status }}</p>
+      <p class="gen-functionality">{{ post.funkcjonalnosc }}</p>
+        <button (click)="deletePost(i)">Delete</button>
+        <button (click)="enterEditMode(post, i)">Edit</button>
+    </div>
   </div>
-</div>
