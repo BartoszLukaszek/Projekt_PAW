@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ProjectlistComponent } from './project-list/project-list.component';
+ import { HomeComponent } from './home/home.component';
+ import { ProjectListComponent } from './project-list/project-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ProjectlistComponent,
+    HomeComponent,
+    ProjectListComponent,
     ],
   imports: [
     BrowserModule,
