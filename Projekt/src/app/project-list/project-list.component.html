@@ -1,70 +1,28 @@
-
-<div class="blog-container">
-  <h2 class="main-title">Dodaj nowy projekt</h2>
-  <div class="input-group">
-      <label>Tytuł projektu:</label>
-      <input [(ngModel)]="newPost.title" placeholder="Nazwa projektu">
-  </div>
-  <div class="input-group">
-      <label>Opis projektu:</label>
-      <textarea [(ngModel)]="newPost.content" placeholder="Opis projektu"></textarea>
-  </div>
-  <div class="input-group">
-      <label>Status:</label>
-      <select [(ngModel)]="newPost.status">
-          <option value="Do zrobienia">Do zrobienia</option>
-          <option value="W trakcie">W trakcie</option>
-          <option value="Zrobione">Zrobione</option>
-      </select>
-  </div>
-  <div class="input-group">
-      <label>Priorytet:</label>
-      <select [(ngModel)]="newPost.priority">
-          <option value="Wysoki">Wysoki</option>
-          <option value="Średni">Średni</option>
-          <option value="Niski">Niski</option>
-      </select>
-  </div>
-  <button class="click" (click)="addPost()">Add Post</button>
-
-  <div *ngIf="editedPost" class="edit-form">
-      <h2 class="main-title">Edytuj projekt</h2>
-      <div class="input-group">
-          <label>Tytuł projektu:</label>
-          <input [(ngModel)]="editedPost.title">
-      </div>
-      <div class="input-group">
-          <label>Opis projektu:</label>
-          <textarea [(ngModel)]="editedPost.content"></textarea>
-      </div>
-      <div class="input-group">
-          <label>Status:</label>
-          <select [(ngModel)]="editedPost.status">
-              <option value="Do zrobienia">Do zrobienia</option>
-              <option value="W trakcie">W trakcie</option>
-              <option value="Zrobione">Zrobione</option>
-          </select>
-      </div>
-      <div class="input-group">
-          <label>Priorytet:</label>
-          <select [(ngModel)]="editedPost.priority">
-              <option value="Wysoki">Wysoki</option>
-              <option value="Średni">Średni</option>
-              <option value="Niski">Niski</option>
-          </select>
-      </div>
-      <button class="click" (click)="updatePost()">Zaktualizuj Post</button>
-      <button class="click" (click)="cancelEdit()">Anuluj</button>
-  </div>
-
   <h2 class="main-title">Projekty</h2>
   <div *ngFor="let post of posts; let i = index" class="post">
-      <h3 class="gen-title">{{ post.title }}</h3>
-      <p class="gen-content">{{ post.content }}</p>
-      <p class="gen-priority">{{ post.priority }}</p>
-      <p class="gen-status">{{ post.status }}</p>
-      <p class="gen-functionality">{{ post.funkcjonalnosc }}</p>
-        <button (click)="deletePost(i)">Delete</button>
-        <button (click)="enterEditMode(post, i)">Edit</button>
+      <div *ngIf="editedPostIndex !== i">
+          <h3 class="gen-title">{{ post.title }}</h3>
+          <p class="gen-content">{{ post.content }}</p>
+          <p class="gen-priority">{{ post.priority }}</p>
+          <p class="gen-status">{{ post.status }}</p>
+          <p class="gen-functionality">{{ post.funkcjonalnosc }}</p>
+          <button (click)="onDelete(i)">Delete</button>
+          <button (click)="onEdit(post, i)">Edit</button>
+      </div>
+      <div *ngIf="editedPostIndex === i && editedPost">
+        <input [(ngModel)]="editedPost.title" placeholder="Tytuł projektu">
+        <textarea [(ngModel)]="editedPost.content" placeholder="Opis projektu"></textarea>
+        <select [(ngModel)]="editedPost.status">
+            <option value="Do zrobienia">Do zrobienia</option>
+            <option value="W trakcie">W trakcie</option>
+            <option value="Zrobione">Zrobione</option>
+        </select>
+        <select [(ngModel)]="editedPost.priority">
+            <option value="Wysoki">Wysoki</option>
+            <option value="Średni">Średni</option>
+            <option value="Niski">Niski</option>
+        </select>
+        <button (click)="updatePost()">Update</button>
+        <button (click)="cancelEdit()">Cancel</button>
     </div>
   </div>

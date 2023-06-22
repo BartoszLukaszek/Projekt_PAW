@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PostService } from '../services/post.service';
 
 interface Post {
@@ -15,9 +15,11 @@ interface Post {
   styleUrls: ['./project-list.component.scss'],
 })
 
-export class ProjectlistComponent implements OnInit {
+export class ProjectListComponent implements OnInit {
   posts: Post[] = [];
-  newPost: Post = { title: '', content: '', status: 'Do zrobienia', funkcjonalnosc: '', priority: 'Niski' };
+  @Output() edit = new EventEmitter<{post: Post, index: number}>();
+  @Output() delete = new EventEmitter<number>();
+
   editedPost: Post | null = null;
   editedPostIndex: number = -1;
 
@@ -27,20 +29,16 @@ export class ProjectlistComponent implements OnInit {
     this.posts = this.postService.getPosts();
   }
 
-  addPost(): void {
-    this.postService.addPost(this.newPost);
-    this.newPost = { title: '', content: '', status: 'Do zrobienia', funkcjonalnosc: '', priority: 'Niski' };
-    this.posts = this.postService.getPosts();
-  }
-
-  deletePost(index: number): void {
-    this.postService.deletePost(index);
-    this.posts = this.postService.getPosts();
-  }
-
-  enterEditMode(post: Post, index: number): void {
+  onEdit(post: Post, index: number): void {
     this.editedPost = { ...post };
     this.editedPostIndex = index;
+  }
+
+  onDelete(index: number): void {
+
+        this.postService.deletePost(index);
+    this.posts = this.postService.getPosts();
+
   }
 
   cancelEdit(): void {
