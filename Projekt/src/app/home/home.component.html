@@ -1,0 +1,28 @@
+<div class="blog-container">
+  <h2 class="main-title">Dodaj nowy projekt</h2>
+  <div class="input-group">
+      <label>Tytuł projektu:</label>
+      <input [(ngModel)]="newPost.title" placeholder="Nazwa projektu">
+  </div>
+  <div class="input-group">
+      <label>Opis projektu:</label>
+      <textarea [(ngModel)]="newPost.content" placeholder="Opis projektu"></textarea>
+  </div>
+  <div class="input-group">
+      <label>Status:</label>
+      <select [(ngModel)]="newPost.status">
+          <option value="Do zrobienia">Do zrobienia</option>
+          <option value="W trakcie">W trakcie</option>
+          <option value="Zrobione">Zrobione</option>
+      </select>
+  </div>
+  <div class="input-group">
+      <label>Priorytet:</label>
+      <select [(ngModel)]="newPost.priority">
+          <option value="Wysoki">Wysoki</option>
+          <option value="Średni">Średni</option>
+          <option value="Niski">Niski</option>
+      </select>
+  </div>
+  <button class="click" (click)="addPost()">Add Post</button>
+</div>
