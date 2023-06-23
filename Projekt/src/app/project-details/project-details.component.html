@@ -1,0 +1,50 @@
+<div *ngIf="post">
+  <h2 class="main-title">Szczegóły projektu</h2>
+  <div class="post">
+    <h3 class="gen-title">{{ post.title }}</h3>
+    <p class="gen-content">{{ post.content }}</p>
+    <p class="gen-priority">Priorytet: {{ post.priority }}</p>
+    <p class="gen-status">Status: {{ post.status }}</p>
+    <div *ngIf="isEditMode" class="input-group">
+      <label for="priority">Priorytet:</label>
+      <select id="priority" [(ngModel)]="editedPost.priority">
+        <option value="Wysoki">Wysoki</option>
+        <option value="Średni">Średni</option>
+        <option value="Niski">Niski</option>
+      </select>
+    </div>
+    <div *ngIf="isEditMode" class="input-group">
+      <label for="status">Status:</label>
+      <select id="status" [(ngModel)]="editedPost.status">
+        <option value="Do zrobienia">Do zrobienia</option>
+        <option value="W trakcie">W trakcie</option>
+        <option value="Zrobione">Zrobione</option>
+      </select>
+    </div>
+    <div *ngIf="isEditMode" class="input-group">
+      <label for="title">Tytuł projektu:</label>
+      <input type="text" id="title" [(ngModel)]="editedPost.title">
+    </div>
+    <div *ngIf="isEditMode" class="input-group">
+      <label for="content">Opis projektu:</label>
+      <textarea id="content" [(ngModel)]="editedPost.content"></textarea>
+    </div>
+    <div *ngIf="isEditMode" class="input-group">
+      <label for="funkcjonalnosc">Funkcjonalność:</label>
+      <input type="text" id="funkcjonalnosc" [(ngModel)]="editedPost.funkcjonalnosc">
+    </div>
+    <div *ngIf="isEditMode" class="input-group">
+      <label for="details">Szczegóły:</label>
+      <textarea id="details" [(ngModel)]="editedPost.details"></textarea>
+    </div>
+    <p class="gen-functionality">Funkcjonalność: {{ editedPost.funkcjonalnosc }}</p>
+    <p class="gen-details">Szczegóły: {{ editedPost.details }}</p>
+  </div>
+  <div *ngIf="isEditMode">
+    <button (click)="onUpdate()">Zapisz</button>
+    <button (click)="onCancel()">Anuluj</button>
+  </div>
+  <div *ngIf="!isEditMode">
+    <button (click)="onEdit()">Edytuj</button>
+  </div>
+</div>
