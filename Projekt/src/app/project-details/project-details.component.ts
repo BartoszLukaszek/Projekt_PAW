@@ -66,7 +66,7 @@ export class ProjectDetailsComponent implements OnInit {
     this.update.emit(this.editedPost);
     this.post = { ...this.editedPost };
     this.isEditMode = false;
-    this.postService.savePosts([this.post]); // Dodano zapis danych w Local Storage
+    this.postService.savePosts([this.post]);
   }
 
   updatePost(): void {
