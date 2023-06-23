@@ -1,45 +1,69 @@
 .main-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  text-align: center;
+  font-size: 2em;
+  color: #333;
 }
 
 .post {
-  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 1em;
+  margin-bottom: 1em;
 }
 
 .gen-title {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 1.5em;
+  color: #333;
 }
 
 .gen-content {
-  margin-top: 5px;
+  font-size: 1em;
+  color: #666;
 }
 
 .gen-priority,
 .gen-status,
 .gen-functionality,
 .gen-details {
-  margin-top: 10px;
+  font-size: 0.9em;
+  color: #999;
 }
 
-.edit-mode-title {
-  font-size: 18px;
+.input-group {
+  margin-bottom: 1em;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
   font-weight: bold;
-  margin-bottom: 10px;
 }
 
-.edit-mode input,
-.edit-mode textarea,
-.edit-mode select {
-  margin-bottom: 10px;
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid #ddd;
 }
 
-.edit-mode button {
+button {
+  padding: 0.5em 1em;
+  font-size: 1em;
   margin-right: 10px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.edit-button {
-  margin-top: 10px;
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
