@@ -1,0 +1,36 @@
+<!-- <div class="task-container">
+  <h2 class="main-title">Dodaj nowe zadanie</h2>
+  <div class="input-group">
+    <label>Nazwa zadania:</label>
+    <input [(ngModel)]="newTask" placeholder="Nazwa zadania">
+  </div>
+  <button class="click" (click)="addTask()">Dodaj zadanie</button>
+
+  <div *ngIf="editedTaskIndex !== null" class="input-group">
+    <label>Edytuj zadanie:</label>
+    <input [(ngModel)]="editedTask">
+    <button class="click" (click)="saveEditedTask()">Zapisz zmiany</button>
+  </div>
+
+  <div *ngFor="let task of tasks; let i = index">
+    <p>{{task}} <button (click)="editTask(i)">Edytuj</button> <button (click)="deleteTask(i)">Usuń</button></p>
+  </div>
+</div> -->
+<div class="task-container">
+  <h2 class="main-title">Dodaj nowe zadanie</h2>
+  <div class="input-group">
+    <label>Nazwa zadania:</label>
+    <input [(ngModel)]="newTask.title" placeholder="Nazwa zadania">
+  </div>
+  <button class="click" (click)="addTask()">Dodaj zadanie</button>
+
+  <div *ngIf="editedTaskIndex !== null" class="input-group">
+    <label>Edytuj zadanie:</label>
+    <input [ngModel]="editedTask?.title" (ngModelChange)="onEditedTaskChange($event)">
+    <button class="click" (click)="saveEditedTask()">Zapisz zmiany</button>
+  </div>
+
+  <div *ngFor="let task of tasks; let i = index">
+    <p>{{ task.title }} <button (click)="editTask(i)">Edytuj</button> <button (click)="deleteTask(i)">Usuń</button></p>
+  </div>
+</div>

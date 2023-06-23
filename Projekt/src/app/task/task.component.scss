@@ -1,0 +1,73 @@
+.task-container {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+
+  .main-title {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+  }
+
+  .input-group {
+    margin-bottom: 1em;
+
+    label {
+      display: block;
+      font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.5em;
+      font-size: 1em;
+      border: 1px solid #ddd;
+    }
+  }
+
+  button {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    margin-right: 10px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  .post {
+    border: 1px solid #ddd;
+    padding: 1em;
+    margin-bottom: 1em;
+
+    .gen-title {
+      font-size: 1.5em;
+      color: #333;
+    }
+
+    .gen-content {
+      font-size: 1em;
+      color: #666;
+    }
+
+    .gen-priority,
+    .gen-status,
+    .gen-functionality {
+      font-size: 0.9em;
+      color: #999;
+    }
+  }
+}
