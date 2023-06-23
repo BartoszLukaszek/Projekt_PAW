@@ -21,6 +21,10 @@ export class PostService {
 
     return savedPosts ? JSON.parse(savedPosts).map((post: Post) => ({ ...post, status: post.status || 'Do zrobienia', funkcjonalność: post.funkcjonalnosc|| '', priority: post.priority || 'Niski' })) : [];
   }
+  getPost(id: number): Post | null {
+    const posts = this.getPosts();
+    return posts[id] || null;
+  }
 
   savePosts(posts: Post[]): void {
     localStorage.setItem(this.localStorageKey, JSON.stringify(posts));

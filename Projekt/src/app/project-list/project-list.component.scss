@@ -8,7 +8,9 @@
   margin-bottom: 1em;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   width: 100%;
   padding: 0.5em;
   font-size: 1em;
@@ -52,7 +54,9 @@ button:disabled {
   color: #666;
 }
 
-.gen-priority, .gen-status, .gen-functionality {
+.gen-priority,
+.gen-status,
+.gen-functionality {
   font-size: 0.9em;
   color: #999;
 }
