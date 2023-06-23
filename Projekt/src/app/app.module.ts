@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
  import { HomeComponent } from './home/home.component';
  import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
     HomeComponent,
     ProjectListComponent,
     ProjectDetailsComponent,
+    TaskComponent,
     ],
   imports: [
     BrowserModule,
