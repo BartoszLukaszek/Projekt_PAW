@@ -47,6 +47,8 @@
   <div *ngIf="isEditMode">
     <button (click)="onUpdate()">Zapisz</button>
     <button (click)="onCancel()">Anuluj</button>
+    <button [routerLink]="['/task']">Go to Task</button>
+
   </div>
   <div *ngIf="!isEditMode">
     <button (click)="onEdit()">Edytuj</button>
