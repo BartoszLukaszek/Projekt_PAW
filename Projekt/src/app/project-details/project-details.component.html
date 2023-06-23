@@ -29,14 +29,18 @@
       <label for="content">Opis projektu:</label>
       <textarea id="content" [(ngModel)]="editedPost.content"></textarea>
     </div>
+
+
     <div *ngIf="isEditMode" class="input-group">
       <label for="funkcjonalnosc">Funkcjonalność:</label>
       <input type="text" id="funkcjonalnosc" [(ngModel)]="editedPost.funkcjonalnosc">
     </div>
+
     <div *ngIf="isEditMode" class="input-group">
       <label for="details">Szczegóły:</label>
       <textarea id="details" [(ngModel)]="editedPost.details"></textarea>
     </div>
+
     <p class="gen-functionality">Funkcjonalność: {{ editedPost.funkcjonalnosc }}</p>
     <p class="gen-details">Szczegóły: {{ editedPost.details }}</p>
   </div>

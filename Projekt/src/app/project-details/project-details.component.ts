@@ -36,6 +36,7 @@ export class ProjectDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.editedPost);
     const id = this.route.snapshot.paramMap.get('id');
     if (id !== null) {
       const post = this.postService.getPost(Number(id));
@@ -61,8 +62,18 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   onUpdate(): void {
+    console.log('onUpdate() called');
     this.update.emit(this.editedPost);
     this.post = { ...this.editedPost };
     this.isEditMode = false;
+    this.postService.savePosts([this.post]); // Dodano zapis danych w Local Storage
+  }
+
+  updatePost(): void {
+    if (this.editedPost && this.editedPost.id !== undefined) {
+      this.postService.editPost(this.editedPost.id, this.editedPost);
+      this.post = { ...this.editedPost };
+      this.isEditMode = false;
+    }
   }
 }
